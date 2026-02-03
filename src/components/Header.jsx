@@ -10,9 +10,9 @@ function Header({ title }) {
     <header>
       <div className="header-inner">
         <div className="page-title d-flex align-items-center">
-          <button id="toggleBtn" className="btn btn-sm btn-outline-secondary me-2" onClick={toggleSidebar}>
-            <i className="bi bi-list"></i>
-          </button>
+          {/* <button id="toggleBtn" className="btn btn-sm btn-outline-secondary me-2" onClick={toggleSidebar}>
+          <i className="bi bi-list"></i>
+          </button> */}
           <span>{title}</span>
         </div>
         <div className="d-flex align-items-center gap-3">

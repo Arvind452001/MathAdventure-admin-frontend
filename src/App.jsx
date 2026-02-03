@@ -22,6 +22,12 @@ import StudentDetails from "./pages/StudentDetails";
 import Plans from "./pages/Plans";
 import PlanDetails from "./pages/PlanDetails";
 import UpdatePlan from "./pages/UpdatePlan";
+import BillingHistory from "./pages/BillingHistory";
+import AddLesson from "./pages/AddLesson";
+import Lessons from "./pages/Lessons";
+import LessonDetail from "./pages/LessonDetail";
+import Chapters from "./pages/Chapters";
+import ChapterDetail from "./pages/ChapterDetail";
 
 // Sidebar Context
 export const SidebarContext = createContext();
@@ -94,6 +100,23 @@ function App() {
           }
         />
         <Route
+          path="/lessons"
+          element={
+            <ProtectedRoute>
+              <Lessons />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/lessonDetail/:lessonId"
+          element={
+            <ProtectedRoute>
+              <LessonDetail />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/plans"
           element={
             <ProtectedRoute>
@@ -101,16 +124,31 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/chapters"
+          element={
+            <ProtectedRoute>
+              <Chapters />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/chapters/:chapterID"
+          element={
+            <ProtectedRoute>
+              <ChapterDetail />
+            </ProtectedRoute>
+          }
+        />
 
         <Route
-  path="/plans/add"
-  element={
-    <ProtectedRoute>
-      <AddPlan />
-    </ProtectedRoute>
-  }
-/>
-
+          path="/plans/add"
+          element={
+            <ProtectedRoute>
+              <AddPlan />
+            </ProtectedRoute>
+          }
+        />
 
         <Route
           path="/problems"
@@ -147,7 +185,14 @@ function App() {
             </ProtectedRoute>
           }
         />
-
+        <Route
+          path="/billingHistory"
+          element={
+            <ProtectedRoute>
+              <BillingHistory />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/studentDetails/:studentId"
           element={

@@ -1,11 +1,14 @@
-import { Link } from 'react-router-dom'
-import { useSidebar } from '../App'
+import { Link } from "react-router-dom";
+import { useSidebar } from "../App";
 
 function Sidebar() {
-  const { sidebarCollapsed } = useSidebar()
+  const { sidebarCollapsed } = useSidebar();
 
   return (
-    <aside id="sidebar" className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
+    <aside
+      id="sidebar"
+      className={`sidebar ${sidebarCollapsed ? "collapsed" : ""}`}
+    >
       <div className="p-3 sidebar-header d-flex align-items-center gap-2">
         <img src="/assets/images/logo.png" className="logo" alt="logo" />
         <div className="fw-bold ms-2">MathAdventure</div>
@@ -23,6 +26,14 @@ function Sidebar() {
           <i className="bi bi-person-badge"></i>
           <span className="nav-text">Teachers</span>
         </Link>
+        <Link to="/lessons" className="nav-link d-flex align-items-center">
+          <i className="bi bi-person-badge"></i>
+          <span className="nav-text">Lessons</span>
+        </Link>
+        <Link to="/chapters" className="nav-link d-flex align-items-center">
+          <i className="bi bi-book"></i>
+          <span className="nav-text">Chapters</span>
+        </Link>
         <Link to="/plans" className="nav-link d-flex align-items-center">
           <i className="bi bi-journal-text"></i>
           <span className="nav-text">Plans</span>
@@ -39,13 +50,21 @@ function Sidebar() {
           <i className="bi bi-trophy"></i>
           <span className="nav-text">Leaderboard</span>
         </Link>
+        <Link
+          to="/billingHistory"
+          className="nav-link d-flex align-items-center"
+        >
+          <i className="bi bi-receipt"></i>
+          <span className="nav-text">Billing History</span>
+        </Link>
+
         <Link to="/rewards" className="nav-link d-flex align-items-center">
           <i className="bi bi-gift"></i>
           <span className="nav-text">Rewards</span>
         </Link>
       </nav>
     </aside>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;
