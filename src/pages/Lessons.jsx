@@ -34,7 +34,7 @@ function Lessons() {
         <Header title="Lessons" />
 
         <main className="container-fluid">
-          <div className="card mt-4 mb-4">
+          <div className="card mt-0 mb-4">
             <div className="card-body">
               <h5 style={{ color: "#651d32", fontWeight: 600 }}>
                 All Lessons

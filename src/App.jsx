@@ -31,6 +31,7 @@ import ChapterDetail from "./pages/ChapterDetail";
 import ContactUpdate from "./pages/UpdateContact";
 import ContactMessages from "./pages/ContactMessages";
 import ContactMessageDetail from "./pages/ContactMessageDetail";
+import BillingHistoryDetail from "./pages/BillingHistoryDetail";
 
 // Sidebar Context
 export const SidebarContext = createContext();
@@ -143,7 +144,14 @@ function App() {
             </ProtectedRoute>
           }
         />
-
+   <Route
+          path="/billing-history/:historyId"
+          element={
+            <ProtectedRoute>
+              <BillingHistoryDetail />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/plans/add"
           element={

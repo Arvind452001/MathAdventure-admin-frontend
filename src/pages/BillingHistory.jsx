@@ -1,21 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
-import axiosInstance from "../api/axiosInstance";
 import { getBillingHistoryApi } from "../api/dashboardApi";
 
 function BillingHistory() {
   const [billingData, setBillingData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   /* ================= FETCH BILLING HISTORY ================= */
-
   const fetchBillingHistory = async () => {
     try {
-      const res = await  getBillingHistoryApi()
-      console.log("res",res)
+      const res = await getBillingHistoryApi();
       setBillingData(res?.data?.data || []);
     } catch (error) {
       console.error("Billing history fetch failed:", error);
@@ -29,7 +28,6 @@ function BillingHistory() {
   }, []);
 
   /* ================= UI ================= */
-
   return (
     <div className="admin-app">
       <Sidebar />
@@ -47,17 +45,12 @@ function BillingHistory() {
               {loading ? (
                 <p className="mt-4">Loading billing history...</p>
               ) : billingData.length === 0 ? (
-                <p className="mt-4 text-muted">
-                  No billing records found
-                </p>
+                <p className="mt-4 text-muted">No billing records found</p>
               ) : (
                 <div className="table-responsive mt-3">
                   <table className="table table-hover align-middle">
                     <thead
-                      style={{
-                        backgroundColor: "#651d32",
-                        color: "#fff",
-                      }}
+                      style={{ backgroundColor: "#651d32", color: "#fff" }}
                     >
                       <tr>
                         <th>User</th>
@@ -65,7 +58,7 @@ function BillingHistory() {
                         <th>Amount</th>
                         <th>Status</th>
                         <th>Paid At</th>
-                        <th>Invoice</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
 
@@ -78,10 +71,7 @@ function BillingHistory() {
                               alt=""
                               width={36}
                               height={36}
-                              style={{
-                                borderRadius: "50%",
-                                objectFit: "cover",
-                              }}
+                              style={{ borderRadius: "50%" }}
                             />
                             <span style={{ fontWeight: 500 }}>
                               {item.userId.name}
@@ -112,9 +102,7 @@ function BillingHistory() {
                           </td>
 
                           <td>
-                            {new Date(
-                              item.paidAt
-                            ).toLocaleDateString()}
+                            {new Date(item.paidAt).toLocaleDateString()}
                           </td>
 
                           <td>
@@ -124,6 +112,9 @@ function BillingHistory() {
                                 border: "1px solid #651d32",
                                 color: "#651d32",
                               }}
+                              onClick={() =>
+                                navigate(`/billing-history/${item._id}`)
+                              }
                             >
                               View
                             </button>

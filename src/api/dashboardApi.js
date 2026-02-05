@@ -18,3 +18,7 @@ export const getBillingHistoryApi = () => {
 };
 
 
+// 🟢dashboard data Api
+export const getBillingDetailsApi = (id) => {
+  return axiosInstance.get(`admin/billing/history/${id}`);
+};

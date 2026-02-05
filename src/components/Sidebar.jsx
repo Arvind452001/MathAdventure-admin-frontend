@@ -1,21 +1,16 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSidebar } from "../App";
 
 function Sidebar() {
   const { sidebarCollapsed } = useSidebar();
 
   return (
-    <aside
-      id="sidebar"
-      className={`sidebar ${sidebarCollapsed ? "collapsed" : ""}`}
-    >
-      {/* LOGO */}
-      <div className="p-3 sidebar-header d-flex align-items-center gap-2">
+    <aside className={`sidebar ${sidebarCollapsed ? "collapsed" : ""}`}>
+      <div className="sidebar-header">
         <img src="/assets/images/logo.png" className="logo" alt="logo" />
-        <div className="fw-bold ms-2">MathAdventure</div>
+        {!sidebarCollapsed && <span className="fw-bold">MathAdventure</span>}
       </div>
 
-      {/* NAV */}
       <nav className="p-3">
 
         <NavLink to="/dashboard" className="nav-link d-flex align-items-center">
