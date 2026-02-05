@@ -15,6 +15,7 @@ function Chapters() {
   const fetchChapters = async () => {
     try {
       const res = await getChapterApi()
+      console.log("Avtar",res?.data?.data)
       setChapters(res?.data?.data || []);
       console.log("res",res?.data?.data)
     } catch (error) {
@@ -48,6 +49,7 @@ function Chapters() {
                   <table className="table table-hover align-middle">
                     <thead style={{ background: "#651d32", color: "#fff" }}>
                       <tr>
+                        <th>Thumbnail</th>
                         <th>Title</th>
                         <th>Lesson</th>
                         <th>Teacher</th>
@@ -61,6 +63,18 @@ function Chapters() {
                     <tbody>
                       {chapters.map((chapter) => (
                         <tr key={chapter._id}>
+                           
+                           <td>
+                              <img
+                               src={chapter.thumbnail} 
+                                alt="avatar"
+                                style={{
+                                  width: "50px",
+                                  height: "36px",
+                                  objectFit: "cover",
+                                }}
+                              />
+                            </td>
                           <td style={{ fontWeight: 500 }}>
                             {chapter.title}
                           </td>

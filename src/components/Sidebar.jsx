@@ -53,10 +53,10 @@ function Sidebar() {
           <span className="nav-text">Problems</span>
         </NavLink> */}
 
-        <NavLink to="/leaderboard" className="nav-link d-flex align-items-center">
+        {/* <NavLink to="/leaderboard" className="nav-link d-flex align-items-center">
           <i className="bi bi-trophy"></i>
           <span className="nav-text">Leaderboard</span>
-        </NavLink>
+        </NavLink> */}
 
         <NavLink
           to="/billingHistory"
