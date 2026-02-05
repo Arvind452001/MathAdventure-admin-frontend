@@ -98,7 +98,7 @@ function Dashboard() {
    <div className="admin-app">
       <Sidebar />
       <div className="content">
-        <Header title="Leaderboard" />
+        <Header title="Dashboard" />
         <main className="container-fluid mr-4 ">
       {/* ================= STATS ================= */}
       <div className="row g-3 mb-3">
