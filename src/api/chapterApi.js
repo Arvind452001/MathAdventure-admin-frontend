@@ -9,5 +9,5 @@ export const getChapterApi = () => {
 
 export const getChapterDetailsApi = (id) => {
   console.log("chapterID",id)
- return axiosInstance.get(`/admin/lesson/${id}`);
+ return axiosInstance.get(`/admin/chapter/${id}`);
 };

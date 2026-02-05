@@ -15,7 +15,7 @@ function ChapterDetail() {
   /* ================= FETCH CHAPTER DETAIL ================= */
   const fetchChapterDetail = async () => {
     try {
-      const res = await getChapterDetailsApi(chapterID)
+      const res = await getChapterDetailsApi(chapterID);
       setChapter(res?.data?.data);
     } catch (error) {
       console.error("Chapter detail fetch failed:", error);
@@ -38,7 +38,7 @@ function ChapterDetail() {
         <Header title="Chapter Detail" />
 
         <main className="container-fluid">
-          <div className="card mt-4 mb-4">
+          <div className="card mt-2 mb-2">
             <div className="card-body">
               <Link to="/chapters" style={{ color: "#651d32" }}>
                 ← Back to Chapters
@@ -53,44 +53,42 @@ function ChapterDetail() {
               <hr />
 
               {/* VIDEO */}
-              <video
-                controls
-                width="100%"
-                style={{ borderRadius: "8px" }}
-                src={chapter.videoUrl}
-              />
+              <div className="d-flex justify-content-center my-4">
+                <video
+                  controls
+                  style={{
+                    width: "75%",
+                    borderRadius: "8px",
+                  }}
+                  src={chapter.videoUrl}
+                />
+              </div>
 
               <hr />
 
               <p>
-                <strong>Lesson:</strong>{" "}
-                {chapter.lessonId?.title}
+                <strong>Lesson:</strong> {chapter.lessonId?.title}
               </p>
 
               <p>
-                <strong>Teacher:</strong>{" "}
-                {chapter.teacherId?.firstName}{" "}
+                <strong>Teacher:</strong> {chapter.teacherId?.firstName}{" "}
                 {chapter.teacherId?.lastName}
               </p>
 
               <p>
-                <strong>Email:</strong>{" "}
-                {chapter.teacherId?.email}
+                <strong>Email:</strong> {chapter.teacherId?.email}
               </p>
 
               <p>
-                <strong>Duration:</strong>{" "}
-                {chapter.duration} minutes
+                <strong>Duration:</strong> {chapter.duration} minutes
               </p>
 
               <p>
-                <strong>Access Type:</strong>{" "}
-                {chapter.accessType}
+                <strong>Access Type:</strong> {chapter.accessType}
               </p>
 
               <p>
-                <strong>Status:</strong>{" "}
-                {chapter.status}
+                <strong>Status:</strong> {chapter.status}
               </p>
 
               <p>

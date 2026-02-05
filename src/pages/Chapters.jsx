@@ -87,7 +87,7 @@ function Chapters() {
 
                           <td style={{ textAlign: "right" }}>
                             <Link
-                              // to={`/chapters/${chapter._id}`}
+                              to={`/chapters/${chapter._id}`}
                               className="btn btn-sm"
                               style={{
                                 border: "1px solid #651d32",

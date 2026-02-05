@@ -28,6 +28,9 @@ import Lessons from "./pages/Lessons";
 import LessonDetail from "./pages/LessonDetail";
 import Chapters from "./pages/Chapters";
 import ChapterDetail from "./pages/ChapterDetail";
+import ContactUpdate from "./pages/UpdateContact";
+import ContactMessages from "./pages/ContactMessages";
+import ContactMessageDetail from "./pages/ContactMessageDetail";
 
 // Sidebar Context
 export const SidebarContext = createContext();
@@ -251,6 +254,30 @@ function App() {
           element={
             <ProtectedRoute>
               <AddQuest />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/contact/update"
+          element={
+            <ProtectedRoute>
+              <ContactUpdate />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/contact/messages"
+          element={
+            <ProtectedRoute>
+              <ContactMessages />
+            </ProtectedRoute>
+          }
+        />
+         <Route 
+          path="/message/details/:massageID"
+          element={
+            <ProtectedRoute>
+              <ContactMessageDetail />
             </ProtectedRoute>
           }
         />

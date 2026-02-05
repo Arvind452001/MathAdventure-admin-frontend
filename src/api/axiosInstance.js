@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://node.aitechnotech.in/maryland/api/v1', // 👈 apna backend URL
+  baseURL: 'https://api.math-adventure-edu.com/api/v1', // 👈 apna backend URL
   headers: {
     'Content-Type': 'application/json',
   },
