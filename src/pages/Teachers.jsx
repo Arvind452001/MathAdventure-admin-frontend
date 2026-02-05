@@ -104,6 +104,7 @@ function Teachers() {
                     <thead>
                       <tr>
                         <th>#</th>
+                        <th>Avatar</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Courses</th>
@@ -133,6 +134,18 @@ function Teachers() {
                             onClick={() => handleRowClick(teacher._id)}
                           >
                             <td>{index + 1}</td>
+                            <td>
+                              <img
+                                src={teacher.avatar}
+                                alt="avatar"
+                                style={{
+                                  width: "36px",
+                                  height: "36px",
+                                  borderRadius: "50%",
+                                  objectFit: "cover",
+                                }}
+                              />
+                            </td>
                             <td>
                               {teacher.firstName} {teacher.lastName}
                             </td>

@@ -17,7 +17,7 @@ function Problems() {
               <div className="card-body">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <h5 className="mb-0">Problem Scenarios</h5>
-                  <div><Link to="/problems/add" className="btn btn-primary">New problem</Link></div>
+                  {/* <div><Link to="/problems/add" className="btn btn-primary">New problem</Link></div> */}
                 </div>
                 <div className="table-responsive">
                   <table className="table datatable">

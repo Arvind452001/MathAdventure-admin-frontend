@@ -29,15 +29,10 @@ function Login() {
 
     try {
       const response = await loginApi(formData);
-      
-      // assume backend sends token
       localStorage.setItem('token', response.data.data.token);
-
       navigate('/dashboard');
     } catch (err) {
-      setError(
-        err.response?.data?.message || 'Invalid email or password'
-      );
+      setError(err.response?.data?.message || 'Invalid email or password');
     } finally {
       setLoading(false);
     }
@@ -46,27 +41,54 @@ function Login() {
   return (
     <div
       className="d-flex align-items-center justify-content-center"
-      style={{ minHeight: '100vh', padding: '2rem' }}
+      style={{
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #f5f5f5, #eaeaea)',
+        padding: '2rem',
+      }}
     >
-      <div className="login-card card shadow-sm">
-        <div className="card-body">
-          <div className="text-center mb-3">
+      <div
+        className="card shadow-lg"
+        style={{
+          width: '100%',
+          maxWidth: '420px',
+          borderRadius: '18px',
+          padding: '8px',
+        }}
+      >
+        <div
+          className="card-body"
+          style={{
+            padding: '32px 28px',
+          }}
+        >
+          {/* Logo */}
+          <div className="text-center mb-4">
             <img
               src="/assets/images/logo.png"
               alt="logo"
-              style={{ width: '180px', maxWidth: '80%' }}
+              style={{ width: '150px' }}
             />
           </div>
 
-          <h5 className="card-title text-center">Admin Login</h5>
+          <h4
+            className="text-center mb-4"
+            style={{ fontWeight: 600, color: '#333' }}
+          >
+            Admin Login
+          </h4>
 
           {error && (
-            <div className="alert alert-danger py-2">{error}</div>
+            <div className="alert alert-danger py-2 text-center">
+              {error}
+            </div>
           )}
 
           <form onSubmit={handleLogin}>
             <div className="mb-3">
-              <label className="form-label">Email</label>
+              <label className="form-label" style={{ fontWeight: 500 }}>
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -74,12 +96,18 @@ function Login() {
                 placeholder="admin@example.com"
                 value={formData.email}
                 onChange={handleChange}
+                style={{
+                  borderRadius: '10px',
+                  padding: '10px 12px',
+                }}
                 required
               />
             </div>
 
-            <div className="mb-3">
-              <label className="form-label">Password</label>
+            <div className="mb-4">
+              <label className="form-label" style={{ fontWeight: 500 }}>
+                Password
+              </label>
               <input
                 type="password"
                 name="password"
@@ -87,14 +115,28 @@ function Login() {
                 placeholder="••••••"
                 value={formData.password}
                 onChange={handleChange}
+                style={{
+                  borderRadius: '10px',
+                  padding: '10px 12px',
+                }}
                 required
               />
             </div>
 
             <button
               type="submit"
-              className="btn btn-primary w-100"
               disabled={loading}
+              style={{
+                width: '100%',
+                backgroundColor: '#651d32',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '12px',
+                padding: '12px',
+                fontWeight: 600,
+                letterSpacing: '0.5px',
+                opacity: loading ? 0.8 : 1,
+              }}
             >
               {loading ? 'Logging in...' : 'Login'}
             </button>

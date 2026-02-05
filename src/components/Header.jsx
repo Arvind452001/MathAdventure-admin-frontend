@@ -1,14 +1,27 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSidebar } from "../App";
 
 function Header({ title }) {
   const { toggleSidebar } = useSidebar();
+  
+  const navigate = useNavigate();
+
+  // ✅ Sign out handler
+  const handleLogout = () => {
+    localStorage.removeItem("token");      // token remove
+    navigate("/login"); // redirect
+  };
+
+  // ✅ Profile navigation
+  const goToProfile = () => {
+    navigate("/dashboard");
+  };
 
   return (
     <header
       style={{
         width: "100%",
-        marginBottom:"20px",
+        marginBottom: "20px",
         background: "#fff",
         borderBottom: "1px solid rgba(0,0,0,.08)",
       }}
@@ -24,63 +37,55 @@ function Header({ title }) {
         }}
       >
         {/* LEFT */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <button
             className="btn btn-sm btn-outline-secondary"
             onClick={toggleSidebar}
-            style={{ display: "flex", alignItems: "center" }}
           >
             <i className="bi bi-list"></i>
           </button>
 
-          <span
-            style={{
-              fontSize: "18px",
-              fontWeight: 600,
-              whiteSpace: "nowrap",
-            }}
-          >
+          <span style={{ fontSize: "18px", fontWeight: 600 }}>
             {title}
           </span>
         </div>
 
         {/* RIGHT */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-          }}
-        >
-          <div className="dropdown">
-            <a
-              href="#"
-              className="text-decoration-none dropdown-toggle"
-              data-bs-toggle="dropdown"
-              style={{ display: "flex", alignItems: "center" }}
+        <div className="dropdown">
+          <button
+            className="btn btn-light dropdown-toggle"
+            data-bs-toggle="dropdown"
+            style={{ display: "flex", alignItems: "center", gap: "8px" }}
+          >
+            <div
+              style={{
+                width: "32px",
+                height: "32px",
+                borderRadius: "50%",
+                background: "#651d32",
+                color: "#000",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: 600,
+              }}
             >
-              <div className="avatar">A</div>
-            </a>
+              A
+            </div>
+          </button>
 
-            <ul className="dropdown-menu dropdown-menu-end">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Profile
-                </a>
-              </li>
-              <li>
-                <Link className="dropdown-item" to="/login">
-                  Sign out
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <ul className="dropdown-menu dropdown-menu-end">
+            <li>
+              <button className="dropdown-item" onClick={goToProfile}>
+                Profile
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item text-danger" onClick={handleLogout}>
+                Sign out
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </header>

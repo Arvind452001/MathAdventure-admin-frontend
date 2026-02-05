@@ -79,9 +79,9 @@ function Plans() {
                 {/* HEADER */}
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <h5 className="mb-0">Plans</h5>
-                  <Link to="/plans/add" className="btn btn-primary">
+                  {/* <Link to="/plans/add" className="btn btn-primary">
                     Create Plan
-                  </Link>
+                  </Link> */}
                 </div>
 
                 {/* TABLE */}
@@ -89,7 +89,7 @@ function Plans() {
                   <table className="table datatable table-hover">
                     <thead>
                       <tr>
-                        <th>#</th>
+                        <th >#</th>
                         <th>Name</th>
                         <th>Title</th>
                         <th>Price</th>

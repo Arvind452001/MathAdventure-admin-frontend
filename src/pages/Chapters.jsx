@@ -16,6 +16,7 @@ function Chapters() {
     try {
       const res = await getChapterApi()
       setChapters(res?.data?.data || []);
+      console.log("res",res?.data?.data)
     } catch (error) {
       console.error("Chapters fetch failed:", error);
     } finally {

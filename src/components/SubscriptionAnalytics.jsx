@@ -33,7 +33,7 @@ function SubscriptionAnalytics({ data }) {
         </div>
 
         {/* ===== STATUS BAR ===== */}
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <h6 style={{ fontWeight: 600 }}>Status Breakdown</h6>
           <div
             className="progress"
@@ -56,10 +56,10 @@ function SubscriptionAnalytics({ data }) {
           <small className="text-muted">
             Active {subscriptions.active} / {subscriptions.total}
           </small>
-        </div>
+        </div> */}
 
         {/* ===== REVENUE TABLE ===== */}
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <h6 style={{ fontWeight: 600 }}>Revenue by Plan</h6>
 
           {revenue.revenueByPlan.length === 0 ? (
@@ -84,7 +84,7 @@ function SubscriptionAnalytics({ data }) {
               </tbody>
             </table>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ function Students() {
     try {
       setLoading(true);
       const response = await getStudentApi();
-      setStudents(response.data.data || []);
+     setStudents(response.data.data || []);
     } catch (error) {
       console.error("Error fetching students:", error);
     } finally {
@@ -41,7 +41,8 @@ function Students() {
   /* ================= DELETE ================= */
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this student?")) return;
+    if (!window.confirm("Are you sure you want to delete this student?"))
+      return;
 
     try {
       await deleteStudentApi(id);
@@ -75,9 +76,7 @@ function Students() {
 
   const filteredStudents = students
     .filter((student) =>
-      (student.firstName || "")
-        .toLowerCase()
-        .includes(search.toLowerCase())
+      (student.firstName || "").toLowerCase().includes(search.toLowerCase()),
     )
     .slice(0, pageSize);
 
@@ -128,12 +127,27 @@ function Students() {
                   <table className="table datatable table-hover">
                     <thead>
                       <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Progress</th>
-                        <th>Status</th>
-                        <th>Actions</th>
+                        <th style={{ backgroundColor: "#000", color: "#fff" }}>
+                          #
+                        </th>
+                        <th style={{ backgroundColor: "#000", color: "#fff" }}>
+                          Avatar
+                        </th>
+                        <th style={{ backgroundColor: "#000", color: "#fff" }}>
+                          Name
+                        </th>
+                        <th style={{ backgroundColor: "#000", color: "#fff" }}>
+                          Email
+                        </th>
+                        <th style={{ backgroundColor: "#000", color: "#fff" }}>
+                          Progress
+                        </th>
+                        <th style={{ backgroundColor: "#000", color: "#fff" }}>
+                          Status
+                        </th>
+                        <th style={{ backgroundColor: "#000", color: "#fff" }}>
+                          Actions
+                        </th>
                       </tr>
                     </thead>
 
@@ -155,11 +169,22 @@ function Students() {
                           <tr
                             key={student._id}
                             style={{ cursor: "pointer" }}
-                            onClick={() =>
-                              handleRowClick(student._id)
-                            }
+                            onClick={() => handleRowClick(student._id)}
                           >
                             <td>{index + 1}</td>
+                            <td>
+                              <img
+                                src={student.avatar}
+                                alt="avatar"
+                                style={{
+                                  width: "36px",
+                                  height: "36px",
+                                  borderRadius: "50%",
+                                  objectFit: "cover",
+                                }}
+                              />
+                            </td>
+
                             <td>{student.firstName}</td>
                             <td>{student.email}</td>
                             <td>{student.progress || 0}%</td>
@@ -173,18 +198,12 @@ function Students() {
                                     : "text-danger fw-semibold small"
                                 }
                               >
-                                {student.isActive
-                                  ? "Active"
-                                  : "Inactive"}
+                                {student.isActive ? "Active" : "Inactive"}
                               </span>
                             </td>
 
                             {/* ACTIONS */}
-                            <td
-                              onClick={(e) =>
-                                e.stopPropagation()
-                              }
-                            >
+                            <td onClick={(e) => e.stopPropagation()}>
                               {/* STATUS TOGGLE ICON */}
                               <button
                                 className={`btn btn-sm me-2 ${
@@ -193,13 +212,9 @@ function Students() {
                                     : "btn-success"
                                 }`}
                                 title={
-                                  student.isActive
-                                    ? "Deactivate"
-                                    : "Activate"
+                                  student.isActive ? "Deactivate" : "Activate"
                                 }
-                                onClick={() =>
-                                  handleStatusToggle(student._id)
-                                }
+                                onClick={() => handleStatusToggle(student._id)}
                               >
                                 <i
                                   className={`bi ${
@@ -216,9 +231,7 @@ function Students() {
                               {/* DELETE */}
                               <button
                                 className="btn btn-sm btn-danger"
-                                onClick={() =>
-                                  handleDelete(student._id)
-                                }
+                                onClick={() => handleDelete(student._id)}
                               >
                                 <i className="bi bi-trash"></i>
                               </button>

@@ -48,10 +48,10 @@ function Sidebar() {
           <span className="nav-text">Quests</span>
         </NavLink>
 
-        <NavLink to="/problems" className="nav-link d-flex align-items-center">
+        {/* <NavLink to="/problems" className="nav-link d-flex align-items-center">
           <i className="bi bi-puzzle"></i>
           <span className="nav-text">Problems</span>
-        </NavLink>
+        </NavLink> */}
 
         <NavLink to="/leaderboard" className="nav-link d-flex align-items-center">
           <i className="bi bi-trophy"></i>
