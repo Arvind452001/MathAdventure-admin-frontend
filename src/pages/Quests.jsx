@@ -38,9 +38,9 @@ function Quests() {
               <div className="card-body">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <h5 className="mb-0">Quests</h5>
-                  <Link to="/quests/add" className="btn btn-sm btn-primary">
+                  {/* <Link to="/quests/add" className="btn btn-sm btn-primary">
                     New Quest
-                  </Link>
+                  </Link> */}
                 </div>
 
                 {loading && (
