@@ -3,8 +3,12 @@ import axiosInstance from "./axiosInstance";
 
 
 // 🟢dashboard data Api
-export const getDashboardApi = () => {
+export const getDashboaranalyticsdApi = () => {
   return axiosInstance.get("/admin/dashboard/analytics");
+};
+
+export const getDashboardprogressApi = () => {
+  return axiosInstance.get("/admin/student/progress/chart");
 };
 
 // 🟢dashboard data Api
