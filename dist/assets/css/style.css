@@ -3,7 +3,7 @@
 
 :root{
   --sidebar-width:260px;          /* Desktop / Tablet */
-  --sidebar-mobile-width:72px;    /* Mobile only */
+  --sidebar-mobile-width:100px;    /* Mobile only */
   --header-height:72px;
   --brand-1:#651d32;
   --brand-2:#00305c;
